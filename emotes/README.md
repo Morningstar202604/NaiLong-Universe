@@ -19,15 +19,7 @@ emotes/
 ├── nailong-11.jpeg    # 奶龙圣诞帽狂喜露牙大笑
 ├── nailong-12.jpeg    # 奶龙圣诞帽捧腹大笑
 ├── nailong-13.gif     # 大奶龙指脑袋得意大笑（带小奶龙）
-├── nailong-14.gif     # 奶龙闭眼微笑（佛系版）
-├── nailong-15.gif     # 奶龙摸肚"奶龙变身"
-├── nailong-16.gif     # 奶龙水中划水"划水"
-├── nailong-17.gif     # 奶龙惊讶呆萌探头
-├── nailong-18.gif     # 奶龙摆烂"只想当个废物"
-├── nailong-19.gif     # 奶龙"宝宝害怕"吓哭
-├── nailong-20.png     # 奶龙举"奶家人"旗帜
-├── nailong-21.gif     # 奶龙"遇到困难睡大觉"
-└── nailong-22.gif     # 奶龙暴怒踩自行车
+└── nailong-20.png     # 奶龙举"奶家人"旗帜
 ```
 
 ## 来源与版权
