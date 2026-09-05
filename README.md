@@ -13,15 +13,27 @@
 
 | 目录 | 内容 | 干啥用 |
 | --- | --- | --- |
-| `wallpapers/` | 壁纸库（4K/2K/1080P/手机/双屏） | 让屏幕每一寸都是奶龙 |
+| `wallpapers/` | 壁纸库（22 张 1080P 卡片版） | 让屏幕每一寸都是奶龙 |
 | `themes/windows/` | Windows 桌面主题 + 视觉样式 | 开机就是奶龙的世界 |
 | `themes/macos/` | macOS 壁纸包 + 外观设置指南 | 苹果也逃不过奶龙 |
 | `themes/terminal/` | 终端配色（Windows Terminal / iTerm2 / VS Code） | 敲命令都敲出奶龙味 |
-| `emotes/` | 表情包素材库（23 张，静图+动图） | 斗图弹药库 |
+| `emotes/` | 表情包素材库（22 张，静图+动图） | 斗图弹药库 |
+
+## 壁纸
+
+22 张卡片海报风壁纸（1920x1080），由表情素材合成，风格统一。
+
+<p align="center">
+  <img src="wallpapers/fullhd/nailong-01.jpg" alt="奶龙捧腹大笑壁纸" width="280">
+  <img src="wallpapers/fullhd/nailong-13.jpg" alt="奶龙指脑袋大笑壁纸" width="280">
+  <img src="wallpapers/fullhd/nailong-28.jpg" alt="奶龙狂笑壁纸" width="280">
+</p>
+
+全部壁纸见 [wallpapers/README.md](wallpapers/README.md)，用 `scripts/make_wallpapers.py` 可自行批量生成。
 
 ## 表情包素材库
 
-奶龙表情包 23 张已入库，静态图和 GIF 都有，拿去斗图、二次配字都行。
+奶龙表情包 22 张已入库，静态图和 GIF 都有，拿去斗图、二次配字都行。
 
 <p align="center">
   <img src="emotes/nailong-01.jpeg" alt="奶龙捧腹大笑" width="150">

@@ -4,22 +4,28 @@
 
 > 温馨提示：换壁纸一时爽，一直换一直爽。
 
-## 目录说明
+## 已有壁纸
+
+`fullhd/` 下 22 张（1920x1080），全部由已审核的表情素材合成，卡片海报风格：
 
 ```
 wallpapers/
-├── 4k/          # 3840x2160，适配 4K 显示器
-├── 2k/          # 2560x1440，适配 2K 显示器
-├── fullhd/      # 1920x1080，适配 1080P 显示器
-├── mobile/      # 竖屏壁纸，适配手机
-└── dualscreen/  # 双屏拼接壁纸
+├── fullhd/nailong-01.jpg   ~  nailong-28.jpg   # 22 张卡片版壁纸
+├── 4k/          # 3840x2160，适配 4K 显示器（待产）
+├── 2k/          # 2560x1440，适配 2K 显示器（待产）
+├── mobile/      # 竖屏壁纸，适配手机（待产）
+└── dualscreen/  # 双屏拼接壁纸（待产）
+```
+
+壁纸由 [`scripts/make_wallpapers.py`](../scripts/make_wallpapers.py) 生成，改样式后重跑即可批量更新：
+
+```bash
+python3 scripts/make_wallpapers.py emotes wallpapers/fullhd 1920 1080
 ```
 
 ## 命名规范
 
-建议格式：`nai-long-<场景>-<编号>.<扩展名>`
-
-示例：`nai-long-sleeping-01.png`
+建议格式：`nailong-<编号>.<扩展名>`，编号与表情素材库 `emotes/` 一一对应。
 
 ## 安装
 
