@@ -13,15 +13,15 @@
 
 | 目录 | 内容 | 干啥用 |
 | --- | --- | --- |
-| `wallpapers/` | 壁纸库（22 张 1080P 卡片版） | 让屏幕每一寸都是奶龙 |
-| `themes/windows/` | Windows 桌面主题 + 视觉样式 | 开机就是奶龙的世界 |
-| `themes/macos/` | macOS 壁纸包 + 外观设置指南 | 苹果也逃不过奶龙 |
+| `wallpapers/` | 壁纸库（22 张 1080P 原图直出版） | 让屏幕每一寸都是奶龙 |
+| `themes/windows/` | Windows 桌面主题（.theme） | 开机就是奶龙的世界 |
+| `themes/macos/` | macOS 外观设置指南 | 苹果也逃不过奶龙 |
 | `themes/terminal/` | 终端配色（Windows Terminal / iTerm2 / VS Code） | 敲命令都敲出奶龙味 |
 | `emotes/` | 表情包素材库（22 张，静图+动图） | 斗图弹药库 |
 
 ## 壁纸
 
-22 张 1920x1080 壁纸：白底素材抠图直出（角色放大立在主题背景上），室内场景用卡片版，风格统一无大片空白。
+22 张 1920x1080 壁纸，全部**原图直出**：原图完整等比缩放居中，不裁剪、不抠图、不P图，白底素材纯白无缝衔接，素材什么样壁纸就什么样。
 
 <p align="center">
   <img src="wallpapers/fullhd/nailong-01.jpg" alt="奶龙捧腹大笑壁纸" width="280">
