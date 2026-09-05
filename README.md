@@ -17,11 +17,11 @@
 | `themes/windows/` | Windows 桌面主题 + 视觉样式 | 开机就是奶龙的世界 |
 | `themes/macos/` | macOS 壁纸包 + 外观设置指南 | 苹果也逃不过奶龙 |
 | `themes/terminal/` | 终端配色（Windows Terminal / iTerm2 / VS Code） | 敲命令都敲出奶龙味 |
-| `emotes/` | 表情包素材库（15 张，静图+动图） | 斗图弹药库 |
+| `emotes/` | 表情包素材库（23 张，静图+动图） | 斗图弹药库 |
 
 ## 表情包素材库
 
-奶龙表情包 15 张已入库，静态图和 GIF 都有，拿去斗图、二次配字都行。
+奶龙表情包 23 张已入库，静态图和 GIF 都有，拿去斗图、二次配字都行。
 
 <p align="center">
   <img src="emotes/nailong-01.jpeg" alt="奶龙捧腹大笑" width="150">

@@ -19,7 +19,15 @@ emotes/
 ├── nailong-11.jpeg    # 奶龙圣诞帽狂喜露牙大笑
 ├── nailong-12.jpeg    # 奶龙圣诞帽捧腹大笑
 ├── nailong-13.gif     # 大奶龙指脑袋得意大笑（带小奶龙）
-└── nailong-20.png     # 奶龙举"奶家人"旗帜
+├── nailong-20.png     # 奶龙举"奶家人"旗帜
+├── nailong-21.gif     # 奶龙捧腹大笑 GIF（可灵AI生成）
+├── nailong-22.gif     # 奶龙捧红心大笑
+├── nailong-23.gif     # 奶龙抱胸大笑脚怼镜头
+├── nailong-24.gif     # 简化Q版奶龙捧腹大笑
+├── nailong-25.jpg     # 奶龙捧腹大笑静图
+├── nailong-26.gif     # 奶龙捧腹大笑 GIF
+├── nailong-27.jpg     # 奶龙圣诞服捧腹大笑（豆包AI生成）
+└── nailong-28.gif     # 奶龙狂笑到抽搐
 ```
 
 ## 来源与版权
