@@ -3,7 +3,9 @@
 
 用法: python3 make_wallpapers.py <表情目录> <输出目录> [宽度] [高度]
 
-流程: 去背景(绿幕抠图或四边洪水填充) -> 缩放主体 -> 主题渐变背景 + 星空 + 光晕 + 投影 -> 合成
+两种风格自动选择：
+- 白底素材 -> 抠图直出版：角色放大到填满画面，直接立在主题渐变背景上
+- 其他素材 -> 卡片版：圆角卡片承载原图，占画面约 75% 高度
 """
 import os
 import random
@@ -73,6 +75,17 @@ def is_green_screen(img):
     return greens >= 3
 
 
+def has_white_bg(img):
+    w, h = img.size
+    corners = [(3, 3), (w - 4, 3), (3, h - 4), (w - 4, h - 4)]
+    bright = 0
+    for x, y in corners:
+        r, g, b = img.convert("RGB").getpixel((x, y))[:3]
+        if r > 175 and g > 175 and b > 175:
+            bright += 1
+    return bright >= 3
+
+
 def chroma_key(img):
     img = img.convert("RGBA")
     px = img.load()
@@ -84,8 +97,8 @@ def chroma_key(img):
     return img
 
 
-def flood_remove_bg(img, tol=40):
-    """从四边洪水填充去除背景：沿"颜色平滑"区域扩散，遇到角色轮廓（突变）即停"""
+def flood_remove_white(img, bright=175, tol=40):
+    """从四边洪水填充：只清除足够亮的背景，遇到角色（暗色轮廓/黄身）即停"""
     img = img.convert("RGBA")
     px = img.load()
     w, h = img.size
@@ -105,8 +118,8 @@ def flood_remove_bg(img, tol=40):
     while q:
         x, y = q.popleft()
         r, g, b, a = px[x, y]
-        if a == 0:
-            continue
+        if a == 0 or min(r, g, b) < bright:
+            continue  # 不够亮 = 角色区域，不扩散
         px[x, y] = (r, g, b, 0)
         for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
             nx, ny = x + dx, y + dy
@@ -118,13 +131,38 @@ def flood_remove_bg(img, tol=40):
     return img
 
 
-def compose(emote, out_path):
+def feather(img, radius=0.9):
+    a = img.getchannel("A").filter(ImageFilter.GaussianBlur(radius))
+    img.putalpha(a)
+    return img
+
+
+def compose_cutout(emote, out_path):
+    """抠图直出版：角色放大填满，立在背景上"""
+    bg = gradient_bg(W, H)
+    bg = add_stars(bg)
+    bg = add_glow(bg, W // 2, int(H * 0.55), int(H * 0.42))
+
+    target_h = int(H * 0.85)
+    ratio = min(target_h / emote.height, (W * 0.95) / emote.width)
+    new_w, new_h = int(emote.width * ratio), int(emote.height * ratio)
+    emote = emote.resize((new_w, new_h), Image.LANCZOS)
+
+    cx, cy = W // 2, int(H * 0.52)
+    bg = add_shadow(bg, cx, cy, new_w, new_h)
+    mask = emote.getchannel("A")
+    bg.paste(emote, (cx - new_w // 2, cy - new_h // 2), mask)
+    bg.convert("RGB").save(out_path, quality=92)
+    print("cutout:", out_path)
+
+
+def compose_card(emote, out_path):
+    """卡片版：圆角卡片承载原图"""
     bg = gradient_bg(W, H)
     bg = add_stars(bg)
 
-    # 卡片尺寸：高度上限 62%，宽度上限 70%
-    max_h = int(H * 0.62)
-    ratio = min(max_h / emote.height, (W * 0.70) / emote.width)
+    max_h = int(H * 0.75)
+    ratio = min(max_h / emote.height, (W * 0.85) / emote.width)
     cw, ch = int(emote.width * ratio), int(emote.height * ratio)
     emote = emote.convert("RGBA").resize((cw, ch), Image.LANCZOS)
 
@@ -136,12 +174,11 @@ def compose(emote, out_path):
     card.paste(emote, (pad, pad))
 
     cx, cy = W // 2, int(H * 0.48)
-    bg = add_glow(bg, cx, cy, (cw + pad * 2) // 2 + 130)
+    bg = add_glow(bg, cx, cy, (cw + pad * 2) // 2 + 120)
     bg = add_shadow(bg, cx, cy, cw + pad * 2, ch + pad * 2)
-
     bg.paste(card, (cx - card.width // 2, cy - card.height // 2), card)
     bg.convert("RGB").save(out_path, quality=92)
-    print("made:", out_path)
+    print("card:", out_path)
 
 
 def main():
@@ -158,7 +195,18 @@ def main():
             print("skip", f, e)
             continue
         name = os.path.splitext(f)[0]
-        compose(img, os.path.join(OUT_DIR, f"{name}-wall.jpg"))
+        out_path = os.path.join(OUT_DIR, f"{name}.jpg")
+
+        if is_green_screen(img):
+            img = chroma_key(img)
+            a = img.getchannel("A").filter(ImageFilter.MinFilter(3))
+            img.putalpha(a)
+            compose_cutout(feather(img), out_path)
+        elif has_white_bg(img):
+            img = flood_remove_white(img)
+            compose_cutout(feather(img), out_path)
+        else:
+            compose_card(img, out_path)
 
 
 if __name__ == "__main__":
