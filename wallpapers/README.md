@@ -6,10 +6,11 @@
 
 ## 已有壁纸
 
-`fullhd/` 下 22 张（1920x1080），两种风格自动适配：
+`fullhd/` 下 22 张（1920x1080），全部**原图直出**：
 
-- **抠图直出版**（17 张）：白底/绿幕素材抠出角色，放大立在主题渐变背景上，无卡片框
-- **卡片版**（5 张：03/05/06/13/28）：室内场景等无法干净抠图的素材，用圆角卡片承载
+- 原图完整等比缩放居中放置，一像素都不裁剪、不抠图、不P图
+- 四周空白用原图自身的背景色填充（白底素材纯白无缝衔接）
+- 素材本来长什么样，壁纸就是什么样
 
 ```
 wallpapers/
@@ -20,7 +21,7 @@ wallpapers/
 └── dualscreen/  # 双屏拼接壁纸（待产）
 ```
 
-壁纸由 [`scripts/make_wallpapers.py`](../scripts/make_wallpapers.py) 生成，改样式后重跑即可批量更新：
+壁纸由 [`scripts/make_wallpapers.py`](../scripts/make_wallpapers.py) 生成，改尺寸后重跑即可批量更新：
 
 ```bash
 python3 scripts/make_wallpapers.py emotes wallpapers/fullhd 1920 1080
