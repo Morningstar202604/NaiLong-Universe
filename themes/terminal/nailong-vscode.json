@@ -1,0 +1,26 @@
+{
+  "$schema": "vscode://schemas/workbench.json",
+  "workbench.colorCustomizations": {
+    "terminal.background": "#0E1510",
+    "terminal.foreground": "#E8F5E9",
+    "terminalCursor.background": "#0E1510",
+    "terminalCursor.foreground": "#66BB6A",
+    "terminal.selectionBackground": "#1B3323",
+    "terminal.ansiBlack": "#0E1510",
+    "terminal.ansiRed": "#E57373",
+    "terminal.ansiGreen": "#66BB6A",
+    "terminal.ansiYellow": "#FFD54F",
+    "terminal.ansiBlue": "#4FC3F7",
+    "terminal.ansiMagenta": "#BA68C8",
+    "terminal.ansiCyan": "#4DD0E1",
+    "terminal.ansiWhite": "#E8F5E9",
+    "terminal.ansiBrightBlack": "#4A5D50",
+    "terminal.ansiBrightRed": "#EF9A9A",
+    "terminal.ansiBrightGreen": "#81C784",
+    "terminal.ansiBrightYellow": "#FFE082",
+    "terminal.ansiBrightBlue": "#81D4FA",
+    "terminal.ansiBrightMagenta": "#CE93D8",
+    "terminal.ansiBrightCyan": "#80DEEA",
+    "terminal.ansiBrightWhite": "#F1F8E9"
+  }
+}

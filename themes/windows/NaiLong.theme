@@ -1,0 +1,29 @@
+; NaiLong.theme - 奶龙 Windows 主题示例
+; 用法：复制到 C:\Windows\Resources\Themes 后双击应用
+[Theme]
+DisplayName=NaiLong (奶龙主题)
+ThemeId={8A1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}
+
+; 桌面壁纸（替换为实际壁纸路径）
+[Control Panel\Desktop]
+Wallpaper=%SystemRoot%\Resources\Themes\NaiLong\wallpapers\nai-long-sleeping-01.png
+TileWallpaper=0
+WallpaperStyle=10
+
+; 配色方案（RGB 逗号分隔）
+[Control Panel\Colors]
+Background=14 21 16
+Window=14 21 16
+WindowText=232 245 233
+ActiveTitle=102 187 106
+InactiveTitle=30 40 33
+Menu=14 21 16
+MenuText=232 245 233
+ButtonFace=14 21 16
+ButtonText=232 245 233
+Highlight=102 187 106
+HighlightText=14 21 16
+
+; 系统声音（可选，放入 sounds/ 目录）
+; [AppEvents\Schemes\Apps\.Default]
+; ...
