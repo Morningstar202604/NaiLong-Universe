@@ -17,6 +17,20 @@
 | `themes/windows/` | Windows 桌面主题 + 视觉样式 | 开机就是奶龙的世界 |
 | `themes/macos/` | macOS 壁纸包 + 外观设置指南 | 苹果也逃不过奶龙 |
 | `themes/terminal/` | 终端配色（Windows Terminal / iTerm2 / VS Code） | 敲命令都敲出奶龙味 |
+| `emotes/` | 表情包素材库（22 张，静图+动图） | 斗图弹药库 |
+
+## 表情包素材库
+
+奶龙表情包 22 张已入库，静态图和 GIF 都有，拿去斗图、二次配字都行。
+
+<p align="center">
+  <img src="emotes/nailong-01.jpeg" alt="奶龙捧腹大笑" width="150">
+  <img src="emotes/nailong-09.gif" alt="奶龙捧腹大笑动图" width="150">
+  <img src="emotes/nailong-13.gif" alt="奶龙指脑袋大笑" width="150">
+  <img src="emotes/nailong-05.jpeg" alt="奶龙嘲讽大笑" width="150">
+</p>
+
+完整清单看 [emotes/README.md](emotes/README.md)。
 
 ## 快速开始
 
@@ -26,6 +40,7 @@
 2. [Windows 主题](themes/windows/README.md) - 窗口也要奶里奶气
 3. [macOS 主题](themes/macos/README.md) - 苹果用户请自觉排队
 4. [终端配色](themes/terminal/README.md) - 程序员快乐水
+5. [表情包素材库](emotes/README.md) - 斗图弹药，无限开火
 
 ## 支持矩阵
 
@@ -56,5 +71,6 @@
 ## 版权声明
 
 - 奶龙角色形象版权归其版权方所有，本项目是粉丝向资源合集
+- 壁纸与表情包素材来自网络公开资源（如俏表情网），为粉丝整理，非官方出品
 - 请只上传合法来源的资源，别把付费素材偷偷塞进来，奶龙看着你呢
 - 本项目纯属用爱发电，不做任何商业用途
