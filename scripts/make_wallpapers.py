@@ -138,13 +138,14 @@ def feather(img, radius=0.9):
 
 
 def compose_cutout(emote, out_path):
-    """抠图直出版：角色放大填满，立在背景上"""
+    """抠图直出版：角色放大立在背景上，四周强制留安全边距"""
     bg = gradient_bg(W, H)
     bg = add_stars(bg)
     bg = add_glow(bg, W // 2, int(H * 0.55), int(H * 0.42))
 
-    target_h = int(H * 0.85)
-    ratio = min(target_h / emote.height, (W * 0.95) / emote.width)
+    # 缩放到约 78% 高度，且强制内容不超出画布 94%（四周至少 3% 边距）
+    ratio = min((H * 0.78) / emote.height, (W * 0.88) / emote.width,
+                (H * 0.94) / emote.height, (W * 0.94) / emote.width)
     new_w, new_h = int(emote.width * ratio), int(emote.height * ratio)
     emote = emote.resize((new_w, new_h), Image.LANCZOS)
 
