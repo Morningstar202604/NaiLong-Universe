@@ -1,5 +1,6 @@
 ; NaiLong.theme - 奶龙 Windows 主题示例
 ; 用法：复制到 C:\Windows\Resources\Themes 后双击应用
+; 配色已对齐到 nailong-vscode-theme 1.0.0 奶黄主色 + 绿眼睛方案
 [Theme]
 DisplayName=NaiLong (奶龙主题)
 ThemeId={8A1B2C3D-4E5F-6A7B-8C9D-0E1F2A3B4C5D}
@@ -10,19 +11,19 @@ Wallpaper=%SystemRoot%\Resources\Themes\NaiLong\wallpapers\nai-long-sleeping-01.
 TileWallpaper=0
 WallpaperStyle=10
 
-; 配色方案（RGB 逗号分隔）
+; 配色方案（RGB 逗号分隔）- 暖黑暖棕奶黄
 [Control Panel\Colors]
-Background=14 21 16
-Window=14 21 16
+Background=18 18 18
+Window=18 18 18
 WindowText=232 245 233
-ActiveTitle=102 187 106
-InactiveTitle=30 40 33
-Menu=14 21 16
+ActiveTitle=255 213 79
+InactiveTitle=46 37 17
+Menu=18 18 18
 MenuText=232 245 233
-ButtonFace=14 21 16
+ButtonFace=18 18 18
 ButtonText=232 245 233
-Highlight=102 187 106
-HighlightText=14 21 16
+Highlight=255 213 79
+HighlightText=18 18 18
 
 ; 系统声音（可选，放入 sounds/ 目录）
 ; [AppEvents\Schemes\Apps\.Default]

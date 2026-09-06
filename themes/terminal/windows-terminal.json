@@ -1,11 +1,11 @@
 {
   "name": "NaiLong",
   "foreground": "#E8F5E9",
-  "background": "#0E1510",
+  "background": "#121212",
   "cursorColor": "#66BB6A",
-  "selectionBackground": "#1B3323",
+  "selectionBackground": "#2E2511",
   "colors": {
-    "black": "#0E1510",
+    "black": "#121212",
     "red": "#E57373",
     "green": "#66BB6A",
     "yellow": "#FFD54F",
@@ -13,7 +13,7 @@
     "purple": "#BA68C8",
     "cyan": "#4DD0E1",
     "white": "#E8F5E9",
-    "brightBlack": "#4A5D50",
+    "brightBlack": "#8A7A5A",
     "brightRed": "#EF9A9A",
     "brightGreen": "#81C784",
     "brightYellow": "#FFE082",
