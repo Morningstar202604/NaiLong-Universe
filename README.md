@@ -72,14 +72,34 @@
 - 对齐：与 `Nailong-Studio/nailong-vscode-theme` 1.0.0 保持一致
 - 宗旨：深色系，夜猫子友好，老板不友好
 
+## 调色板单源（必读，仿 Catppuccin，省得改错）
+
+**不要手改 `themes/` 下的色值！** 全组织唯一真源是 `palette.json`（`version 1.0.0`，`nailongDark` / `nailongLight` 各 26 色，含 hex/RGB/HSL）。所有主题都由它生成：
+
+```bash
+# 生成全部
+python3 scripts/generate.py --all
+# 只生成终端三件套
+python3 scripts/generate.py --port terminal
+# 校验是否与单源一致（CI 会跑）
+python3 scripts/generate.py --check
+```
+
+- 生成产物：`themes/terminal/nailong-vscode.json` / `windows-terminal.json` / `nailong.itermcolors` + `themes/windows/NaiLong.theme`
+- 独立仓 `Nailong-Studio/nailong-vscode-theme` 和 `Nailong-Studio/wallpaper` 也通过 `resources/ports.yml` 注册，复用同一 `palette.json`（已同步到 `nailong-vscode-theme/palette.json`）
+- 新增 Port：看 `docs/port-creation.md`，模板照抄即可
+- 规范：`docs/style-guide.md` 已对齐 `catppuccin` 的 `palette` + `ports.yml` 机制
+
+> 壁纸已独立为 `Nailong-Studio/wallpaper`，别再往 `wallpapers/` 丢图，去那边提 PR。
+
 ## 贡献
 
-欢迎投喂：
+欢迎投喂（先看 `docs/style-guide.md`）：
 
-- 壁纸请按分辨率丢进 `wallpapers/` 对应目录
-- 主题文件请放到对应平台目录，顺便写清安装方法
+- **壁纸**：已独立为 `Nailong-Studio/wallpaper`，请去那边按分辨率提 PR，别再往本仓 `wallpapers/` 丢图
+- **主题/终端**：一律改 `palette.json`，跑 `python3 scripts/generate.py --all`，**不要手改 `themes/`**；新增工具看 `docs/port-creation.md`
 - 命名别乱来，格式 `nai-long-<场景>-<编号>`
-- 提交前看一眼 README 要不要跟着改
+- 提交前跑 `python3 scripts/generate.py --check` 保证与单源一致，再看 README 要不要跟着改
 
 ## 版权声明
 
