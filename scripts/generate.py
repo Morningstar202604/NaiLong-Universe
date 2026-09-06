@@ -5,6 +5,7 @@
   python3 scripts/generate.py --port terminal
   python3 scripts/generate.py --check
 从 palette.json 读取 nailongDark 口味生成各 Port 配置。
+原则：只改 palette.json，此脚本输出即为真值，禁止手改 themes/。
 """
 import argparse
 import json
@@ -14,26 +15,24 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PALETTE_PATH = ROOT / "palette.json"
 
+
 def load_palette():
     data = json.loads(PALETTE_PATH.read_text())
     dark = data["nailongDark"]["colors"]
     light = data["nailongLight"]["colors"]
     return data, dark, light
 
+
 def hex_to_rgb_str(hexc):
-    hexc = hexc.lstrip('#')
+    hexc = hexc.lstrip("#")
     return f"{int(hexc[0:2],16)} {int(hexc[2:4],16)} {int(hexc[4:6],16)}"
 
-def hex_to_iterm_real(hexc):
-    hexc = hexc.lstrip('#')
-    r = int(hexc[0:2],16)/255
-    g = int(hexc[2:4],16)/255
-    b = int(hexc[4:6],16)/255
-    return r,g,b
 
-def generate_terminal():
+def render_terminal():
+    """按 palette.json 渲染终端三件套 + Windows 主题，返回 {相对路径: 内容}"""
     _, dark, _ = load_palette()
-    # nailong-vscode.json
+    rendered = {}
+
     vscode = {
         "$schema": "vscode://schemas/workbench.json",
         "workbench.colorCustomizations": {
@@ -58,13 +57,12 @@ def generate_terminal():
             "terminal.ansiBrightMagenta": dark["mauveLight"]["hex"],
             "terminal.ansiBrightCyan": dark["cyanLight"]["hex"],
             "terminal.ansiBrightWhite": dark["text"]["hex"],
-        }
+        },
     }
-    p = ROOT / "themes/terminal/nailong-vscode.json"
-    p.write_text(json.dumps(vscode, indent=2, ensure_ascii=False) + "\n")
-    print(f"generated {p}")
+    rendered["themes/terminal/nailong-vscode.json"] = (
+        json.dumps(vscode, indent=2, ensure_ascii=False) + "\n"
+    )
 
-    # windows-terminal.json
     wt = {
         "name": "NaiLong",
         "foreground": dark["text"]["hex"],
@@ -88,20 +86,12 @@ def generate_terminal():
             "brightPurple": dark["mauveLight"]["hex"],
             "brightCyan": dark["cyanLight"]["hex"],
             "brightWhite": dark["text"]["hex"],
-        }
+        },
     }
-    p2 = ROOT / "themes/terminal/windows-terminal.json"
-    p2.write_text(json.dumps(wt, indent=2, ensure_ascii=False) + "\n")
-    print(f"generated {p2}")
+    rendered["themes/terminal/windows-terminal.json"] = (
+        json.dumps(wt, indent=2, ensure_ascii=False) + "\n"
+    )
 
-    # itermcolors - 简版基于模板替换关键色
-    iterm_path = ROOT / "themes/terminal/nailong.itermcolors"
-    txt = iterm_path.read_text()
-    # 这里复用已更新的 itermcolors，若需全量生成可扩展
-    print(f"checked {iterm_path} (already aligned to warm palette)")
-
-    # windows theme
-    win_path = ROOT / "themes/windows/NaiLong.theme"
     win_content = f"""; NaiLong.theme - 奶龙 Windows 主题示例
 ; 用法：复制到 C:\\Windows\\Resources\\Themes 后双击应用
 ; 由 palette.json 单源生成，请勿手改
@@ -127,34 +117,47 @@ ButtonText={hex_to_rgb_str(dark['text']['hex'])}
 Highlight={hex_to_rgb_str(dark['milkYellow']['hex'])}
 HighlightText={hex_to_rgb_str(dark['base']['hex'])}
 """
-    win_path.write_text(win_content)
-    print(f"generated {win_path}")
+    rendered["themes/windows/NaiLong.theme"] = win_content
+    return rendered
+
+
+def generate():
+    rendered = render_terminal()
+    for rel, content in rendered.items():
+        p = ROOT / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(content)
+        print(f"generated {p}")
+
 
 def check():
-    # 简单校验：现有文件是否与生成结果一致
-    print("check: verifying terminal files match palette...")
-    _, dark, _ = load_palette()
-    vscode_path = ROOT / "themes/terminal/nailong-vscode.json"
-    data = json.loads(vscode_path.read_text())
-    if data["workbench.colorCustomizations"]["terminal.background"] != dark["base"]["hex"]:
-        print("mismatch: nailong-vscode.json background")
+    print("check: verifying generated files match palette.json...")
+    rendered = render_terminal()
+    mismatches = []
+    for rel, expected in rendered.items():
+        p = ROOT / rel
+        actual = p.read_text() if p.exists() else ""
+        if actual != expected:
+            mismatches.append(rel)
+    if mismatches:
+        print(f"mismatch: {', '.join(mismatches)}")
+        print("run: python3 scripts/generate.py --all")
         sys.exit(1)
     print("check passed")
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--all", action="store_true", help="生成全部")
-    parser.add_argument("--port", choices=["terminal", "windows"], help="单 Port")
-    parser.add_argument("--check", action="store_true", help="校验")
+    parser.add_argument("--check", action="store_true", help="校验是否与单源一致")
     args = parser.parse_args()
     if args.check:
         check()
-    elif args.port == "terminal" or args.all or len(sys.argv)==1:
-        generate_terminal()
-        if args.check:
-            check()
+    elif args.all or len(sys.argv) == 1:
+        generate()
     else:
         parser.print_help()
+
 
 if __name__ == "__main__":
     main()
