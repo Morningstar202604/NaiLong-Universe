@@ -1,3 +1,5 @@
+import { initLightbox } from "./Lightbox"
+
 export interface GalleryItem {
   id: string
   category: string
@@ -24,8 +26,12 @@ export function renderGrid(data: GalleryItem[]): void {
     grid!.innerHTML = filterByCategory(data, cat)
       .map((i) => `<a href="${i.src}" class="glightbox card"><img loading="lazy" src="${i.thumb}" alt="${i.file}"><span>${i.category}</span></a>`)
       .join("")
-    const w = window as unknown as { GLightbox?: () => unknown }
-    if (w.GLightbox) w.GLightbox()
+    // rebind GLightbox after DOM update (window.GLightbox shim is no-op in ESM; use module import)
+    try {
+      initLightbox()
+    } catch {
+      // jsdom / test env may lack layout APIs – ignore
+    }
   }
   draw("全部")
   const tabs = document.getElementById("tabs")

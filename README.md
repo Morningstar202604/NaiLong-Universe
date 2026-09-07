@@ -31,6 +31,10 @@
 
 全部壁纸见子模块 [`wallpapers/README.md`](https://github.com/Nailong-Studio/wallpaper/blob/main/README.md)（本地 `wallpapers/` 需 `git clone --recurse-submodules` 或 `git submodule update --init`），用 `scripts/make_wallpapers.py` 可自行批量生成（请去壁纸仓提 PR）。
 
+## 画廊导航站
+
+在线浏览 134 张壁纸：https://nailong-studio.github.io/NaiLong-Universe/ （分类浏览 + lightbox 下载，原图直链 wallpapers/*）
+
 ## 表情包素材库
 
 奶龙表情包 22 张已入库，静态图和 GIF 都有，拿去斗图、二次配字都行。
