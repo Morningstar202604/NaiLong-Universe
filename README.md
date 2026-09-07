@@ -21,7 +21,7 @@
 
 ## 壁纸
 
-134 张壁纸（子模块 [`Nailong-Studio/wallpaper`](https://github.com/Nailong-Studio/wallpaper)，`--recurse-submodules` 拉取），分五馆陈列：`fullhd/` 22 张卡片海报风（1920x1080 **原图直出**，不裁剪不P图，白底无缝衔接）+ `classic/` 38 张名画系列（1920x1080 为主，油画质感，世界名画奶龙主演）+ `special/` 9 张特别艺术（奶蛙的永恒/孤独奶龙主义）+ `phone/` 29 张竖屏（最伟大的奶龙 1080x1920）+ `art/` 36 张艺术创作（B站二创，获授权）。
+134 张壁纸（子模块 [`Nailong-Studio/wallpaper`](https://github.com/Nailong-Studio/wallpaper)，`--recurse-submodules` 拉取），分五馆陈列：`fullhd/` 22 张卡片海报风（1920x1080 **原图直出**，不裁剪不P图，白底无缝衔接）+ `classic/` 38 张名画系列（1920x1080 为主，油画质感，世界名画奶龙主演）+ `special/` 9 张特别艺术（奶蛙的永恒/孤独奶龙主义）+ `phone/` 29 张竖屏（最伟大的奶龙 1080x1920）+ `art/` 36 张艺术创作。
 
 <p align="center">
   <img src="wallpapers/fullhd/nailong-01.jpg" alt="奶龙捧腹大笑壁纸" width="280">
@@ -105,18 +105,9 @@ python3 scripts/generate.py --check
 - 命名别乱来，格式 `nai-long-<场景>-<编号>`
 - 提交前跑 `python3 scripts/generate.py --check` 保证与单源一致，再看 README 要不要跟着改
 
-## 致谢
-
-特别感谢以下 B 站 UP 主的二创授权与素材分享：
-
-- **泽央 zeyang**
-- **防御老猫**
-- **超能尼尔尼尔**
-
-以上均为 B 站 UP 主，已获明示可二传/二创，烦请使用时备注来源。侵删。
-
 ## 版权声明
 
 - 奶龙角色形象版权归其版权方所有，本项目是粉丝向资源合集
-- 壁纸与表情包素材来自网络公开资源及上述 B 站 UP 主授权二创，为粉丝整理，非官方出品
-- 请只上传合法来源或已获授权的资源，并按原作者要求备注来源
+- 壁纸与表情包素材来自网络公开资源，为粉丝整理，非官方出品
+- 请只上传合法来源的资源
+- 本项目纯属用爱发电，不做任何商业用途
