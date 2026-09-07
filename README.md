@@ -13,7 +13,7 @@
 
 | 目录 | 内容 | 干啥用 |
 | --- | --- | --- |
-| `wallpapers/` | 壁纸库（60 张：22 张卡片风 + 38 张名画系列） | 让屏幕每一寸都是奶龙 |
+| `wallpapers/` | 壁纸库（98 张 · 子模块 `Nailong-Studio/wallpaper`：22 卡片 + 38 名画 + 9 特别艺术 + 29 竖屏） | 让屏幕每一寸都是奶龙 |
 | `themes/windows/` | Windows 桌面主题（.theme） | 开机就是奶龙的世界 |
 | `themes/macos/` | macOS 外观设置指南 | 苹果也逃不过奶龙 |
 | `themes/terminal/` | 终端配色（Windows Terminal / iTerm2 / VS Code） | 敲命令都敲出奶龙味 |
@@ -21,7 +21,7 @@
 
 ## 壁纸
 
-60 张壁纸，分两馆陈列：`fullhd/` 22 张卡片海报风（1920x1080 **原图直出**，不裁剪不P图，白底无缝衔接）+ `classic/` 38 张名画系列（1920x1080 为主，油画质感，世界名画奶龙主演）。
+98 张壁纸（子模块 [`Nailong-Studio/wallpaper`](https://github.com/Nailong-Studio/wallpaper)，`--recurse-submodules` 拉取），分四馆陈列：`fullhd/` 22 张卡片海报风（1920x1080 **原图直出**，不裁剪不P图，白底无缝衔接）+ `classic/` 38 张名画系列（1920x1080 为主，油画质感，世界名画奶龙主演）+ `special/` 9 张特别艺术（奶蛙的永恒/孤独奶龙主义）+ `phone/` 29 张竖屏（最伟大的奶龙 1080x1920）。
 
 <p align="center">
   <img src="wallpapers/fullhd/nailong-01.jpg" alt="奶龙捧腹大笑壁纸" width="280">
@@ -29,7 +29,7 @@
   <img src="wallpapers/fullhd/nailong-28.jpg" alt="奶龙狂笑壁纸" width="280">
 </p>
 
-全部壁纸见 [wallpapers/README.md](wallpapers/README.md)，用 `scripts/make_wallpapers.py` 可自行批量生成。
+全部壁纸见子模块 [`wallpapers/README.md`](https://github.com/Nailong-Studio/wallpaper/blob/main/README.md)（本地 `wallpapers/` 需 `git clone --recurse-submodules` 或 `git submodule update --init`），用 `scripts/make_wallpapers.py` 可自行批量生成（请去壁纸仓提 PR）。
 
 ## 表情包素材库
 
