@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+site/dist/
+site/public/thumbs/
+site/node_modules/
